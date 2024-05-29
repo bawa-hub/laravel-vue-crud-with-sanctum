@@ -21,9 +21,9 @@ class EmployeeController extends Controller
             'gender' => 'required|string|in:male,female',
             'department' => 'required|string|in:IT,HR,admin',
             'education' => 'required|string',
-            'salary' => 'required|string|in:Less than 1L,1 to 3L,More than 3L',
-            'hobbies' => 'required|array',
-            'dob' => 'required|date',
+            'salary' => 'nullable|in:Less than 1L,1 to 3L,More than 3L',
+            'hobbies' => 'array',
+            'dob' => 'nullable|date',
         ]);
 
         Employee::create($request->all());
@@ -42,10 +42,10 @@ class EmployeeController extends Controller
             'name' => 'required|string|min:3|max:25',
             'gender' => 'required|string|in:male,female',
             'department' => 'required|string|in:IT,HR,admin',
-            'education' => 'required|string|in:MBA/MCA,BE/BTech,ME/MTech',
-            'salary' => 'required|string|in:Less than 1L,1 to 3L,More than 3L',
-            'hobbies' => 'required|array',
-            'dob' => 'required|date',
+            'education' => 'required|string',
+            'salary' => 'nullable|in:Less than 1L,1 to 3L,More than 3L',
+            'hobbies' => 'array',
+            'dob' => 'nullable|date',
         ]);
 
         $employee->update($request->all());

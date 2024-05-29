@@ -3,7 +3,9 @@
         <h2>Employee Form</h2>
         <form @submit.prevent="submitForm">
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name"
+                    ><b>Name</b><span class="text-danger">*</span></label
+                >
                 <input
                     type="text"
                     id="name"
@@ -16,7 +18,7 @@
             </div>
 
             <div class="form-group">
-                <label>Gender</label>
+                <label><b>Gender</b><span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input
@@ -24,6 +26,7 @@
                             type="radio"
                             id="genderMale"
                             value="male"
+                            name="gender"
                             v-model="employee.gender"
                             required
                         />
@@ -37,6 +40,7 @@
                             type="radio"
                             id="genderFemale"
                             value="female"
+                            name="gender"
                             v-model="employee.gender"
                             required
                         />
@@ -48,7 +52,9 @@
             </div>
 
             <div class="form-group">
-                <label>Department</label>
+                <label
+                    ><b>Department</b><span class="text-danger">*</span></label
+                >
                 <div>
                     <div class="form-check form-check-inline">
                         <input
@@ -56,6 +62,7 @@
                             type="radio"
                             id="departmentIT"
                             value="IT"
+                            name="department"
                             v-model="employee.department"
                             required
                         />
@@ -69,6 +76,7 @@
                             type="radio"
                             id="departmentHR"
                             value="HR"
+                            name="department"
                             v-model="employee.department"
                             required
                         />
@@ -82,6 +90,7 @@
                             type="radio"
                             id="departmentAdmin"
                             value="admin"
+                            name="department"
                             v-model="employee.department"
                             required
                         />
@@ -93,7 +102,9 @@
             </div>
 
             <div class="form-group">
-                <label>Education</label>
+                <label
+                    ><b>Education</b><span class="text-danger">*</span></label
+                >
                 <div>
                     <div class="form-check form-check-inline">
                         <input
@@ -101,6 +112,7 @@
                             type="radio"
                             id="educationMBA"
                             value="MBA/MCA"
+                            name="education"
                             v-model="employee.education"
                             required
                         />
@@ -114,6 +126,7 @@
                             type="radio"
                             id="educationBE"
                             value="BE/BTech"
+                            name="education"
                             v-model="employee.education"
                             required
                         />
@@ -127,6 +140,7 @@
                             type="radio"
                             id="educationME"
                             value="ME/MTech"
+                            name="education"
                             v-model="employee.education"
                             required
                         />
@@ -138,12 +152,11 @@
             </div>
 
             <div class="form-group">
-                <label for="salary">Salary</label>
+                <label for="salary"><b>Salary</b></label>
                 <select
                     id="salary"
                     class="form-control"
                     v-model="employee.salary"
-                    required
                 >
                     <option disabled value="">Select Salary</option>
                     <option value="Less than 1L">Less than 1L</option>
@@ -153,7 +166,7 @@
             </div>
 
             <div class="form-group">
-                <label>Hobbies</label>
+                <label><b>Hobbies</b></label>
                 <div>
                     <div class="form-check">
                         <input
@@ -207,13 +220,12 @@
             </div>
 
             <div class="form-group">
-                <label for="dob">Date of Birth</label>
+                <label for="dob"><b>Date of Birth</b></label>
                 <input
                     type="date"
                     id="dob"
                     class="form-control"
                     v-model="employee.dob"
-                    required
                 />
             </div>
 
@@ -240,6 +252,12 @@ export default {
         });
 
         async function submitForm() {
+            console.log("employee", employee);
+
+            if (!employee.salary) {
+                // If salary is not selected, set it to an empty string
+                employee.salary = "";
+            }
             await axios.post("/api/employees", employee).then((res) => {
                 if (res.data.success) {
                     router.push({ name: "Home" });

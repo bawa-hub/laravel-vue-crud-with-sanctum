@@ -26,7 +26,10 @@
                         <td>{{ employee.salary }}</td>
                         <td>{{ employee.hobbies.join(", ") }}</td>
                         <td>
-                            {{ new Date(employee.dob).toLocaleDateString() }}
+                            {{
+                                employee.dob &&
+                                new Date(employee.dob).toLocaleDateString()
+                            }}
                         </td>
                         <td>
                             <button

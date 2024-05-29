@@ -3,7 +3,7 @@
         <h2>Edit Employee</h2>
         <form @submit.prevent="updateEmployee">
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name"><b>Name</b></label>
                 <input
                     type="text"
                     class="form-control"
@@ -16,7 +16,7 @@
             </div>
 
             <div class="form-group">
-                <label>Gender</label>
+                <label><b>Gender</b></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input
@@ -46,7 +46,7 @@
             </div>
 
             <div class="form-group">
-                <label>Department</label>
+                <label><b>Department</b></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input
@@ -88,7 +88,7 @@
             </div>
 
             <div class="form-group">
-                <label>Education</label>
+                <label><b>Education</b></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input
@@ -130,7 +130,7 @@
             </div>
 
             <div class="form-group">
-                <label for="salary">Salary</label>
+                <label for="salary"><b>Salary</b></label>
                 <select
                     class="form-control"
                     id="salary"
@@ -143,7 +143,7 @@
             </div>
 
             <div class="form-group">
-                <label>Hobbies</label>
+                <label><b>Hobbies</b></label>
                 <div>
                     <div
                         class="form-check form-check-inline"
@@ -167,7 +167,7 @@
             </div>
 
             <div class="form-group">
-                <label for="dob">Date of Birth</label>
+                <label for="dob"><b>Date of Birth</b></label>
                 <input
                     type="date"
                     class="form-control"

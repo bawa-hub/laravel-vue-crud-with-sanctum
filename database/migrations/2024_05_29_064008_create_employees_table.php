@@ -19,9 +19,9 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->enum('department', ['IT', 'HR', 'admin']);
             $table->enum('education', ['MBA/MCA', 'BE/BTech', 'ME/MTech']);
-            $table->enum('salary', ['Less than 1L', '1 to 3L', 'More than 3L']);
-            $table->json('hobbies');
-            $table->date('dob');
+            $table->enum('salary', ['Less than 1L', '1 to 3L', 'More than 3L'])->nullable();
+            $table->json('hobbies')->nullable();
+            $table->date('dob')->nullable();
             $table->timestamps();
         });
     }
